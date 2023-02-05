@@ -1,6 +1,6 @@
 package com.teampotato.blahaj.event;
 
-import com.teampotato.blahaj.CuddlyItem;
+import com.teampotato.blahaj.items.CuddlyItem;
 import net.minecraft.nbt.StringNBT;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

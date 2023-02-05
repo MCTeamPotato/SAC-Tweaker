@@ -1,8 +1,5 @@
 package com.teampotato.blahaj.event;
 
-import com.teampotato.blahaj.CuddlyItem;
-import com.teampotato.blahaj.client.AnimationRegistry;
-import com.teampotato.blahaj.server.ServerEmoteAPI;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
