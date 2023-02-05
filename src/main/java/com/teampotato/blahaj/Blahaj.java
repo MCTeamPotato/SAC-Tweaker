@@ -11,18 +11,11 @@ import net.minecraftforge.registries.ObjectHolder;
 
 @Mod("blahaj")
 public class Blahaj {
-
     public Blahaj() {
-
         MinecraftForge.EVENT_BUS.register(this);
-
         DeferredRegister<Item> items = DeferredRegister.create(ForgeRegistries.ITEMS, "blahaj");
-
         items.register("blue_shark", () -> new CuddlyItem(new Item.Properties().stacksTo(1).tab(ItemGroup.TAB_MISC), "item.blahaj.blue_shark.tooltip"));
         items.register("bread", () -> new CuddlyItem(new Item.Properties().stacksTo(1).tab(ItemGroup.TAB_MISC), null));
-
         System.out.println("The shark is sooooooooooooo cute.");
-
-
     }
 }
