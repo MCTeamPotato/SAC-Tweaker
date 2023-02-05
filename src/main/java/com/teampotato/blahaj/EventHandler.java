@@ -1,16 +1,22 @@
-package com.teampotato.blahaj.event;
+package com.teampotato.blahaj;
 
-import com.teampotato.blahaj.items.CuddlyItem;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.nbt.StringNBT;
 import net.minecraftforge.event.AnvilUpdateEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import java.util.Objects;
 
 @Mod.EventBusSubscriber
-public class AnvilEventListener {
-
+public class EventHandler {
+    @SubscribeEvent
+    public static void onBlahajHolding(TickEvent.PlayerTickEvent event) {
+        if (event.player.getItemBySlot(EquipmentSlotType.MAINHAND).getItem().getRegistryName().getNamespace().equals("blahaj")) {
+            //ServerAnimationApi.setPlayerAnimation(event.player.getUUID(), Blahaj.animations.get());
+        }
+    }
     @SubscribeEvent
     public static void onAnvilUpdate(AnvilUpdateEvent event) {
         if(event.getLeft().getItem() instanceof CuddlyItem) {
