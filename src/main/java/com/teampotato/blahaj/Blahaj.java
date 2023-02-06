@@ -4,6 +4,7 @@ import dev.kosmx.playerAnim.core.data.KeyframeAnimation;
 import dev.kosmx.playerAnim.core.data.gson.AnimationSerializing;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.resources.IResource;
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -34,22 +35,20 @@ public class Blahaj {
 
     public static Map<String, KeyframeAnimation> animations = new HashMap<>();
     public static void load(IResourceManager resourceManager) {
-        String data = "animations";
-        for (ResourceLocation getter : resourceManager.listResources(data, file -> file.equals("player.animation.json"))) {
-            assert getter != null;
-            String id = getter.getNamespace();
-            String path = getter.getPath();
-            System.out.println("Loading animation " + id + path);
+        String animationFile = "player_animations";
+        for (ResourceLocation entry : resourceManager.listResources(animationFile, file -> file.endsWith(".json"))) {
             try {
-                List<KeyframeAnimation> readAnimations = AnimationSerializing.deserializeAnimation(Objects.requireNonNull(Blahaj.class.getResourceAsStream("../../../assets" + id + "/" + path)));
-                for (KeyframeAnimation animation : readAnimations) {
-                    animations.put(animation.extraData.get("name").toString(), animation);
-                }
+                IResource resource = resourceManager.getResource(entry);
+                List<KeyframeAnimation> readAnimations = AnimationSerializing.deserializeAnimation(resource.getInputStream());
+                KeyframeAnimation animation = readAnimations.get(0);
+
+                String id = entry.toString().replace(animationFile + "/", "");
+                id = id.substring(0, id.lastIndexOf("."));
+                animations.put(id, animation);
             } catch (Exception exception) {
-                System.out.println("Blahaj failed to load animation. This shouldn't happen!");
+                System.out.println("Failed to load animation " + entry.toString());
                 exception.printStackTrace();
             }
-            System.out.println(animations);
         }
     }
 }
