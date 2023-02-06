@@ -39,7 +39,7 @@ public class Blahaj {
         for (ResourceLocation entry : resourceManager.listResources(animationFile, file -> file.endsWith(".json"))) {
             try {
                 IResource resource = resourceManager.getResource(entry);
-                List<KeyframeAnimation> readAnimations = AnimationSerializing.deserializeAnimation(resource.getInputStream());
+                List<KeyframeAnimation> readAnimations = AnimationSerializing.deserializeAnimation(Blahaj.class.getResourceAsStream("../../../assets/" + entry.getNamespace() + "/" + entry.getPath()));
                 KeyframeAnimation animation = readAnimations.get(0);
 
                 String id = entry.toString().replace(animationFile + "/", "");
