@@ -50,5 +50,6 @@ public class Blahaj {
             }
         }
         System.out.println("Animations start to load.");
+        System.out.println(animations);
     }
 }
