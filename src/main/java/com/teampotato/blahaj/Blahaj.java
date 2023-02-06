@@ -49,5 +49,6 @@ public class Blahaj {
                 exception.printStackTrace();
             }
         }
+        System.out.println("Animations start to load.");
     }
 }
