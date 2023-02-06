@@ -38,6 +38,7 @@ public class SACTweakerEventHandler {
     public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
         if (event.isEndConquered()) return;
         if (event.getPlayer().getCommandSenderWorld().getServer().getGameRules().getRule(GameRules.RULE_KEEPINVENTORY).equals("true")) {
+            System.out.println("Your armor durability is reduced!");
             event.getPlayer().addTag("armoreducer");
         }
     }
