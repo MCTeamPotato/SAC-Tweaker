@@ -1,5 +1,6 @@
-package com.teampotato.blahaj;
+package com.teampotato.blahaj.events;
 
+import com.teampotato.blahaj.CuddlyItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.nbt.StringNBT;
 import net.minecraftforge.event.AnvilUpdateEvent;
@@ -10,7 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.Objects;
 
 @Mod.EventBusSubscriber
-public class EventHandler {
+public class ServerEventHandler {
     @SubscribeEvent
     public static void onBlahajHolding(TickEvent.PlayerTickEvent event) {
         if (event.player.getItemBySlot(EquipmentSlotType.MAINHAND).getItem().getRegistryName().getNamespace().equals("blahaj")) {

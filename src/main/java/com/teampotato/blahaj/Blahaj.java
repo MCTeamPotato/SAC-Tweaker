@@ -49,7 +49,7 @@ public class Blahaj {
                 System.out.println("ID: " + id.toString());
                 System.out.println("Animation: " + animation.toString());
             } catch (Exception exception) {
-                System.out.println("Failed to load animation " + entry.toString());
+                System.out.println("Failed to load animation " + entry.toString() + ". This shouldn't happen!");
                 exception.printStackTrace();
             }
         }
