@@ -45,9 +45,7 @@ public class Blahaj {
                 String id = entry.toString().replace(animationFile + "/", "");
                 id = id.substring(0, id.lastIndexOf("."));
                 animations.put(id, animation);
-                System.out.println("Animation" + entry.toString() + " loaded!");
-                System.out.println("ID: " + id.toString());
-                System.out.println("Animation: " + animation.toString());
+                System.out.println("Animation " + entry.toString() + " loaded!");
             } catch (Exception exception) {
                 System.out.println("Failed to load animation " + entry.toString() + ". This shouldn't happen!");
                 exception.printStackTrace();
