@@ -2,20 +2,20 @@ modLoader="javafml"
 loaderVersion="[36,)"
 license="Unlicense"
 [[mods]]
-modId="blahaj" 
+modId="sactweaker" 
 version="${file.jarVersion}"
-displayName="Blahaj"
+displayName="SACTweaker"
 authors="Team Potato"
 description='''
 The shark is sooooooooooooo cute.
 '''
-[[dependencies.blahaj]]
+[[dependencies.sactweaker]]
     modId="forge"
     mandatory=true
     versionRange="[36,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.blahaj]]
+[[dependencies.sactweaker]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.16.5,1.17)"

@@ -1,8 +1,8 @@
 {
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "blahaj:shork",
-		"particle": "blahaj:shork"
+		"0": "sactweaker:shork",
+		"particle": "sactweaker:shork"
 	},
 	"elements": [
 		{

@@ -11,8 +11,8 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'maven-publish'
 
 version = '1.0'
-group = 'com.teampotato.blahaj'
-archivesBaseName = 'blahaj'
+group = 'com.teampotato.sactweaker'
+archivesBaseName = 'sactweaker'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(11)
 
@@ -31,7 +31,7 @@ minecraft {
 
 
             mods {
-                blahaj {
+                sactweaker {
                     source sourceSets.main
                 }
             }
@@ -48,7 +48,7 @@ minecraft {
 
 
             mods {
-                blahaj {
+                sactweaker {
                     source sourceSets.main
                 }
             }
@@ -59,21 +59,14 @@ minecraft {
 
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'info'
-            args '--mod', 'blahaj', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'sactweaker', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                blahaj {
+                sactweaker {
                     source sourceSets.main
                 }
             }
         }
-    }
-}
-
-repositories {
-    maven {
-        name "KosmX's maven"
-        url 'https://maven.kosmx.dev/'
     }
 }
 
@@ -82,19 +75,17 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 dependencies {
     implementation 'org.jetbrains:annotations:20.1.0'
     minecraft 'net.minecraftforge:forge:1.16.5-36.2.39'
-
-    implementation fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}")
 }
 
 jar {
     manifest {
         attributes([
-            "Specification-Title": "blahaj",
-            "Specification-Vendor": "blahajsareus",
+            "Specification-Title": "sactweaker",
+            "Specification-Vendor": "sactweakersareus",
             "Specification-Version": "1",
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"blahajsareus",
+            "Implementation-Vendor" :"sactweakersareus",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

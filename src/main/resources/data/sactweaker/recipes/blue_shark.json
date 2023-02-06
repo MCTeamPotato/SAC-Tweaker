@@ -2,7 +2,7 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		" # ",
-		"###",
+		"#A#",
 		"PW "
 	],
 	"key": {
@@ -14,10 +14,13 @@
 		},
 		"W": {
 			"item": "minecraft:white_wool"
+		},
+		"A": {
+			"item": "minecraft:trident"
 		}
 	},
 	"result": {
-		"item": "blahaj:blue_shark",
+		"item": "sactweaker:blue_shark",
 		"count": 1
 	}
 }
