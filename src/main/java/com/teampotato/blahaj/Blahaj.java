@@ -39,6 +39,7 @@ public class Blahaj {
             assert getter != null;
             String id = getter.getNamespace();
             String path = getter.getPath();
+            System.out.println("Loading animation " + id + path);
             try {
                 List<KeyframeAnimation> readAnimations = AnimationSerializing.deserializeAnimation(Objects.requireNonNull(Blahaj.class.getResourceAsStream("../../../assets" + id + "/" + path)));
                 for (KeyframeAnimation animation : readAnimations) {
@@ -48,8 +49,7 @@ public class Blahaj {
                 System.out.println("Blahaj failed to load animation. This shouldn't happen!");
                 exception.printStackTrace();
             }
+            System.out.println(animations);
         }
-        System.out.println("Animations start to load.");
-        System.out.println(animations);
     }
 }
