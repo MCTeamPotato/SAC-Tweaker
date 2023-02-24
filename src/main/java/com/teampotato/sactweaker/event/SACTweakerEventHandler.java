@@ -22,24 +22,22 @@ public class SACTweakerEventHandler {
         PlayerEntity player = event.getPlayer();
         Set<String> tags = player.getTags();
         UUID id = player.getUUID();
-        if(Objects.requireNonNull(event.getItemStack().getItem().getRegistryName()).getNamespace().equals("sactweaker")) {
-            player.sendMessage(new TranslationTextComponent("event.sactweaker.eaten"), id);
-            if (tags.contains("sactweaker.eaten")) {
-                player.sendMessage(new TranslationTextComponent("event.sactweaker.final"), id);
-                tags.remove("sactweaker.eaten");
-                return;
-            }
-            event.setCanceled(true);
-            player.addTag("sactweaker.eaten");
+        if(!Objects.requireNonNull(event.getItemStack().getItem().getRegistryName()).getNamespace().equals("sactweaker")) return;
+        player.sendMessage(new TranslationTextComponent("event.sactweaker.eaten"), id);
+        if (tags.contains("sactweaker.eaten")) {
+            player.sendMessage(new TranslationTextComponent("event.sactweaker.final"), id);
+            tags.remove("sactweaker.eaten");
+            return;
         }
+        event.setCanceled(true);
+        player.addTag("sactweaker.eaten");
     }
 
     @SubscribeEvent
     public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
         if (event.isEndConquered()) return;
-        if (event.getPlayer().getCommandSenderWorld().getServer().getGameRules().getRule(GameRules.RULE_KEEPINVENTORY).toString().equals("true")) {
-            System.out.println("Your armor durability is reduced!");
-            event.getPlayer().addTag("armoreducer");
-        }
+        if (event.getPlayer().getCommandSenderWorld().getServer().getGameRules().getRule(GameRules.RULE_KEEPINVENTORY).toString().equals("false")) return;
+        System.out.println("Your armor durability is reduced!");
+        event.getPlayer().addTag("armoreducer");
     }
 }
